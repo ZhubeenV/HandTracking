@@ -3,7 +3,12 @@ import mediapipe as mp
 
 # Initialize MediaPipe Hands
 mp_hands = mp.solutions.hands
-hands = mp_hands.Hands(max_num_hands=2)  # Default to tracking 2 hands
+
+hands = mp_hands.Hands(static_image_mode=False,
+                        max_num_hands=2,
+                        min_detection_confidence=0.1,
+                        min_tracking_confidence=0.1)  
+
 mp_draw = mp.solutions.drawing_utils
 
 # Initialize the webcam
